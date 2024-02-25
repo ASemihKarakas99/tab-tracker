@@ -9,11 +9,17 @@ app.use(morgan('combine'))
 app.use(bodyParser.json())
 app.use(cors())
 
-app.get('/status', (req, res) =>{
+app.post('/register', (req, res) =>{
     res.send({
-        message: 'hello world!'
+        message: `Hello ${req.body.email}!. Your user was registered!`
     })
 })
 
 
 app.listen(process.env.PORT || 8081)
+/*
+AuthenticationSercice.register({
+    email: 'testing@gmail.com',
+    password: '123456'
+})
+*/
